@@ -7,9 +7,14 @@ ul
   transition: max-height .5s
   overflow: hidden
 
+.space-between
+  align-items: space-between
+
+.space-around
+  align-items: space-around
+
 a
   text-decoration: none
-
 
 html
   height: 100%
@@ -105,9 +110,14 @@ hr
     width: 90%
     margin: 30px auto
 
+.column
+  display: flex
+  flex-direction: column
+  *
+    margin-top: 10px
+
 main article
   width: 80%
-  height: 200px
   margin: auto
   margin-bottom: 10%
   display: flex
@@ -125,11 +135,9 @@ main>article p
   width: 100%
 
 article.project img
-  width: 40%
-  height: auto
-  min-width: 200px
-  max-height: 400px
-  max-width: 400px
+  align-self: center
+  margin: 20px
+  max-width: 40%
 
 article.project ul
   color: #363738
@@ -142,9 +150,10 @@ article.project li
   margin-left: 20px
   margin-bottom: 15px
 
-h2 a.draft
-  color: grey
-  margin-left: 5px
+h2, h3
+  a.draft
+    color: grey
+    margin-left: 5px
 
 .linkRow
     display: block
@@ -174,9 +183,7 @@ button.selected
 
 main .journal
   display: block
-  margin: auto
   width: 400px
-  text-align: center
 
 main 
   h2
@@ -186,30 +193,27 @@ main
     padding: 0px
     width: 100%
     display: block
-    text-align: center
 
 .philosophy, .webdev, .other
   &:not(.hidden)
     max-height: 5000px
     overflow: hidden
     transition: max-height .5s
-    transition-delay: .5s
 
-@media (max-width: 800px)
-
+@media screen and (max-width : 800px)
   body
     display: flex
     flex-direction: column
-    header
+  header
     position: relative
     width: 100%
     height: 300px
   
   header label
-  text-align: center
-  padding: 0px
-  width: 100%
-  margin: -80px auto
+    text-align: center
+    padding: 0px
+    width: 100%
+    margin: -80px auto
 
   #picturebox
     position: static
@@ -230,13 +234,11 @@ main
     height: 100px
     position: relative
     bottom: 0px
-  
   main
     margin-top: 100px
     width: calc(100% - 120px)
-  
+    
 @media screen and (max-width: 1200px)
-
   main article
     flex-direction: column
     height: auto
@@ -244,6 +246,12 @@ main
   article.project img, article.project ul
     width: 90%
   
+  article
+    .quote
+      order: 1
+    .column
+      order: 2
+
 
 @media screen and (max-height: 600px)
   footer
